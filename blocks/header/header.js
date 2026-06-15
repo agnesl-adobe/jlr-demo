@@ -625,9 +625,9 @@ export default async function decorate(block) {
       const base = window.hlx?.codeBasePath || '';
       logoImg.src = `${base}/icons/range-rover-logo.svg`;
       logoImg.alt = 'Range Rover';
-      logoImg.style.width = '160px';
-      logoImg.style.height = '9px'; /* SVG viewBox 1500×80 — 160px wide = ~9px tall */
-      logoImg.style.objectFit = 'contain';
+      logoImg.style.height = '14px'; /* SVG viewBox 1500×80 — 14px tall = ~260px wide */
+      logoImg.style.width = 'auto';
+      logoImg.style.display = 'block';
     }
   }
     // Ensure search icon mask uses correct base path in UE/author/local
