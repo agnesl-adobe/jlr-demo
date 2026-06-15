@@ -41,15 +41,9 @@
   font-family: var(--black-font-family);
 }
 
-/* Special underline (only for h1 by default) */
+/* Special underline removed for RR brand */
 .hero h1::after {
-  background-color: var(--main-accent-color);
-  content: "";
-  display: block;
-  height: 5px;
-  margin: 20px auto 30px;
-  width: 128px;
-  transition: width .4s ease-in-out;
+  content: none;
 }
 
 /* Left-aligned layouts: the title underline hugs the left like the title. */
@@ -136,12 +130,7 @@ video.hero-video-bg {
 }
 
 .hero-wrapper .button-container.cta-button a.button::after {
-  content: "\f105";
-  font-family: 'Font Awesome 5 Solid';
-  font-size: 20px;
-  margin-left: 8px;
-  transition: all 0.3s ease;
-  color: var(--text-light);
+  content: none;
 }
 
 .hero-wrapper .button-container.cta-button a.button:hover {
@@ -153,8 +142,7 @@ video.hero-video-bg {
 }
 
 .hero-wrapper .button-container.cta-button a.button:hover::after {
-  color: var(--text-light) !important;
-  transform: translateX(2px);
+  content: none;
 }
 
 /* Secondary CTA */
@@ -165,12 +153,7 @@ video.hero-video-bg {
 }
 
 .hero-wrapper .button-container.cta-button-secondary a.button::after {
-  content: "\f105";
-  font-family: 'Font Awesome 5 Solid';
-  font-size: 20px;
-  margin-left: 8px;
-  transition: all 0.3s ease;
-  color: var(--text-light);
+  content: none;
 }
 
 .hero-wrapper .button-container.cta-button-secondary a.button:hover {
@@ -179,8 +162,7 @@ video.hero-video-bg {
 }
 
 .hero-wrapper .button-container.cta-button-secondary a.button:hover::after {
-  color: var(--text-dark);
-  transform: translateX(2px);
+  content: none;
 }
 
 /* Accessibility */

@@ -617,17 +617,31 @@ export default async function decorate(block) {
   addLogoLink(langCode);
 
   // Replace logo with Range Rover brand logo
-  const logoImg = block.querySelector('.nav-brand img');
-  if (logoImg) {
-    logoImg.src = `${window.hlx?.codeBasePath || ''}/icons/range-rover-logo.svg`;
-    logoImg.alt = 'Range Rover';
-  }
-  const logoPicture = block.querySelector('.nav-brand picture');
-  if (logoPicture && !logoImg) {
-    const img = document.createElement('img');
-    img.src = `${window.hlx?.codeBasePath || ''}/icons/range-rover-logo.svg`;
-    img.alt = 'Range Rover';
-    logoPicture.replaceWith(img);
+  const logoBasePath = window.hlx?.codeBasePath || '';
+  const logoSrc = `${logoBasePath}/icons/range-rover-logo.svg`;
+  const navBrand = block.querySelector('.nav-brand');
+  if (navBrand) {
+    const existingImg = navBrand.querySelector('img');
+    if (existingImg) {
+      // Image-based logo — swap the src
+      existingImg.src = logoSrc;
+      existingImg.alt = 'Range Rover';
+    } else {
+      // Text-based logo — find the anchor (or default-content-wrapper) and inject img
+      const anchor = navBrand.querySelector('a') || navBrand.querySelector('.default-content-wrapper');
+      const img = document.createElement('img');
+      img.src = logoSrc;
+      img.alt = 'Range Rover';
+      img.style.width = '160px';
+      img.style.height = 'auto';
+      if (anchor) {
+        anchor.textContent = '';
+        anchor.appendChild(img);
+      } else {
+        navBrand.textContent = '';
+        navBrand.appendChild(img);
+      }
+    }
   }
     // Ensure search icon mask uses correct base path in UE/author/local
     try {
