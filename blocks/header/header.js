@@ -616,7 +616,20 @@ export default async function decorate(block) {
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
 
-  // Logo is replaced via CSS (header.css ::before on .default-content-wrapper)
+  // Replace logo with Range Rover SVG — skip on author/UE where SVG isn't hosted
+  const isAuthorEnv = document.body.classList.contains('adobe-ue-edit')
+    || document.body.classList.contains('adobe-ue-preview');
+  if (!isAuthorEnv) {
+    const logoImg = block.querySelector('.nav-brand img');
+    if (logoImg) {
+      const base = window.hlx?.codeBasePath || '';
+      logoImg.src = `${base}/icons/range-rover-logo.svg`;
+      logoImg.alt = 'Range Rover';
+      logoImg.style.width = '160px';
+      logoImg.style.height = '9px'; /* SVG viewBox 1500×80 — 160px wide = ~9px tall */
+      logoImg.style.objectFit = 'contain';
+    }
+  }
     // Ensure search icon mask uses correct base path in UE/author/local
     try {
       const iconEl = document.querySelector('header .search.search-icon .icon');

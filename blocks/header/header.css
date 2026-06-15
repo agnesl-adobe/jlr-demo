@@ -190,11 +190,9 @@ header .nav-brand {
   flex-basis: unset;
 }
 
-/* Swap WKND logo for Range Rover SVG — black logo on white nav, no filter needed */
+/* Logo sizing — src is swapped by JS on non-author environments */
 header nav .nav-brand img {
-  content: url('/icons/range-rover-logo.svg');
-  width: 140px;
-  height: auto;
+  display: block;
 }
 
 .wehealthcare-theme header nav .nav-brand img {
