@@ -30,17 +30,26 @@ header nav[aria-expanded='true'] {
 }
 
 @media (width >= 900px) {
+  /* Nav is the positioning parent — all 3 zones are absolutely placed */
   header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: relative;
-    gap: 0 32px;
+    display: block;
     max-width: 1264px;
-    padding: 0 32px;
+    height: 72px;
+    padding: 0;
   }
 
-  /* Logo centred absolutely — outside flex flow so it doesn't push links */
+  /* LEFT: nav links pinned to the left */
+  header nav .nav-sections {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* CENTRE: logo pinned dead-centre */
   header .nav-brand {
     position: absolute;
     left: 50%;
@@ -49,22 +58,17 @@ header nav[aria-expanded='true'] {
     z-index: 1;
   }
 
-  /* Sections: natural width only, no grow — stays on the left */
-  header nav .nav-sections {
-    flex: 0 0 auto;
-  }
-
-  /* Tools: pushed to the far right */
+  /* RIGHT: tools pinned to the right */
   header nav .nav-tools {
-    flex: 0 0 auto;
-    margin-left: auto;
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-    padding: 22px 32px;
     height: auto;
+    padding-bottom: 16px;
   }
 }
 
