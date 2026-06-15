@@ -176,6 +176,17 @@ header nav .nav-brand img {
   filter: brightness(0) invert(1);
 }
 
+/* Range Rover logo override: hide original text/link content */
+header nav .nav-brand.rr-logo-override > *:not(.rr-logo-img) {
+  display: none;
+}
+header nav .nav-brand .rr-logo-img {
+  display: block;
+  width: 160px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
 .wehealthcare-theme header nav .nav-brand img {
   width: auto;
   height: 36.5px;

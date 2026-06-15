@@ -616,32 +616,35 @@ export default async function decorate(block) {
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
 
-  // Replace logo with Range Rover brand logo
-  const logoBasePath = window.hlx?.codeBasePath || '';
-  const logoSrc = `${logoBasePath}/icons/range-rover-logo.svg`;
-  const navBrand = block.querySelector('.nav-brand');
-  if (navBrand) {
-    const existingImg = navBrand.querySelector('img');
-    if (existingImg) {
-      // Image-based logo — swap the src
-      existingImg.src = logoSrc;
-      existingImg.alt = 'Range Rover';
-    } else {
-      // Text-based logo — find the anchor (or default-content-wrapper) and inject img
-      const anchor = navBrand.querySelector('a') || navBrand.querySelector('.default-content-wrapper');
-      const img = document.createElement('img');
-      img.src = logoSrc;
-      img.alt = 'Range Rover';
-      img.style.width = '160px';
-      img.style.height = 'auto';
-      if (anchor) {
-        anchor.textContent = '';
-        anchor.appendChild(img);
-      } else {
-        navBrand.textContent = '';
-        navBrand.appendChild(img);
+  // Replace logo with Range Rover brand logo (deferred so header mounts first)
+  try {
+    const logoBasePath = window.hlx?.codeBasePath || '';
+    const logoSrc = `${logoBasePath}/icons/range-rover-logo.svg`;
+    setTimeout(() => {
+      try {
+        const navBrandEl = document.querySelector('header .nav-brand');
+        if (!navBrandEl) return;
+        const existingImg = navBrandEl.querySelector('img');
+        if (existingImg) {
+          existingImg.src = logoSrc;
+          existingImg.alt = 'Range Rover';
+        } else {
+          // Hide existing text content via CSS class
+          navBrandEl.classList.add('rr-logo-override');
+          const rrImg = document.createElement('img');
+          rrImg.src = logoSrc;
+          rrImg.alt = 'Range Rover';
+          rrImg.className = 'rr-logo-img';
+          navBrandEl.prepend(rrImg);
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.debug('RR logo swap failed', e);
       }
-    }
+    }, 0);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.debug('RR logo init failed', e);
   }
     // Ensure search icon mask uses correct base path in UE/author/local
     try {
