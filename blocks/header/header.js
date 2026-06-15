@@ -615,6 +615,20 @@ export default async function decorate(block) {
   settingAltTextForSearchIcon();
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
+
+  // Replace logo with Range Rover brand logo
+  const logoImg = block.querySelector('.nav-brand img');
+  if (logoImg) {
+    logoImg.src = `${window.hlx?.codeBasePath || ''}/icons/range-rover-logo.svg`;
+    logoImg.alt = 'Range Rover';
+  }
+  const logoPicture = block.querySelector('.nav-brand picture');
+  if (logoPicture && !logoImg) {
+    const img = document.createElement('img');
+    img.src = `${window.hlx?.codeBasePath || ''}/icons/range-rover-logo.svg`;
+    img.alt = 'Range Rover';
+    logoPicture.replaceWith(img);
+  }
     // Ensure search icon mask uses correct base path in UE/author/local
     try {
       const iconEl = document.querySelector('header .search.search-icon .icon');
