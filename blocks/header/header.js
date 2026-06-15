@@ -616,19 +616,39 @@ export default async function decorate(block) {
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
 
-  // Replace logo with Range Rover SVG — skip on author/UE where SVG isn't hosted
-  const isAuthorEnv = document.body.classList.contains('adobe-ue-edit')
-    || document.body.classList.contains('adobe-ue-preview');
-  if (!isAuthorEnv) {
-    const logoImg = block.querySelector('.nav-brand img');
-    if (logoImg) {
+  // Replace logo with Range Rover SVG — robust: handles img OR text nav-brand
+  try {
+    const navBrand = block.querySelector('.nav-brand');
+    if (navBrand) {
       const base = window.hlx?.codeBasePath || '';
-      logoImg.src = `${base}/icons/range-rover-logo.svg`;
-      logoImg.alt = 'Range Rover';
-      logoImg.style.height = '14px'; /* SVG viewBox 1500×80 — 14px tall = ~260px wide */
-      logoImg.style.width = 'auto';
-      logoImg.style.display = 'block';
+      const logoSrc = `${base}/icons/range-rover-logo.svg`;
+      const rrImg = document.createElement('img');
+      rrImg.src = logoSrc;
+      rrImg.alt = 'Range Rover';
+      rrImg.style.height = '14px'; /* SVG viewBox 1500×80 — 14px tall = ~260px wide */
+      rrImg.style.width = 'auto';
+      rrImg.style.display = 'block';
+
+      const existingImg = navBrand.querySelector('img');
+      if (existingImg) {
+        // Image-based logo — just swap the src + size
+        existingImg.src = logoSrc;
+        existingImg.alt = 'Range Rover';
+        existingImg.style.height = '14px';
+        existingImg.style.width = 'auto';
+        existingImg.style.display = 'block';
+      } else {
+        // Text-based logo — replace the inner content with the img
+        const target = navBrand.querySelector('a')
+          || navBrand.querySelector('.default-content-wrapper')
+          || navBrand;
+        target.textContent = '';
+        target.appendChild(rrImg);
+      }
     }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.debug('RR logo swap skipped', e);
   }
     // Ensure search icon mask uses correct base path in UE/author/local
     try {
