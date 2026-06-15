@@ -310,16 +310,16 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 50px;
+    gap: 28px;
     margin: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
-    color: #ffffff;
+    color: #1a1a1a;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
