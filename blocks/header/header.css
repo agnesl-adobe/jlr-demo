@@ -170,21 +170,28 @@ header .nav-brand {
   flex-basis: unset;
 }
 
-header nav .nav-brand img {
-  width: 160px;
-  height: auto;
-  filter: brightness(0) invert(1);
+/* Hide the WKND logo image; show Range Rover logo via CSS instead */
+header nav .nav-brand img,
+header nav .nav-brand picture {
+  display: none !important;
 }
 
-/* Range Rover logo override: hide original text/link content */
-header nav .nav-brand.rr-logo-override > *:not(.rr-logo-img) {
-  display: none;
+header nav .nav-brand .default-content-wrapper {
+  display: flex;
+  align-items: center;
 }
-header nav .nav-brand .rr-logo-img {
+
+header nav .nav-brand .default-content-wrapper::before {
+  content: '';
   display: block;
   width: 160px;
-  height: auto;
+  height: 24px;
+  background-image: url('/icons/range-rover-logo.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
   filter: brightness(0) invert(1);
+  flex-shrink: 0;
 }
 
 .wehealthcare-theme header nav .nav-brand img {

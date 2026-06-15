@@ -616,36 +616,7 @@ export default async function decorate(block) {
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
 
-  // Replace logo with Range Rover brand logo (deferred so header mounts first)
-  try {
-    const logoBasePath = window.hlx?.codeBasePath || '';
-    const logoSrc = `${logoBasePath}/icons/range-rover-logo.svg`;
-    setTimeout(() => {
-      try {
-        const navBrandEl = document.querySelector('header .nav-brand');
-        if (!navBrandEl) return;
-        const existingImg = navBrandEl.querySelector('img');
-        if (existingImg) {
-          existingImg.src = logoSrc;
-          existingImg.alt = 'Range Rover';
-        } else {
-          // Hide existing text content via CSS class
-          navBrandEl.classList.add('rr-logo-override');
-          const rrImg = document.createElement('img');
-          rrImg.src = logoSrc;
-          rrImg.alt = 'Range Rover';
-          rrImg.className = 'rr-logo-img';
-          navBrandEl.prepend(rrImg);
-        }
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.debug('RR logo swap failed', e);
-      }
-    }, 0);
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.debug('RR logo init failed', e);
-  }
+  // Logo is replaced via CSS (header.css ::before on .default-content-wrapper)
     // Ensure search icon mask uses correct base path in UE/author/local
     try {
       const iconEl = document.querySelector('header .search.search-icon .icon');
