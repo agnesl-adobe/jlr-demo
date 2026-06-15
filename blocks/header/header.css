@@ -168,28 +168,12 @@ header .nav-brand {
   flex-basis: unset;
 }
 
-/* Hide the WKND logo image; show Range Rover logo via CSS instead */
-header nav .nav-brand img,
-header nav .nav-brand picture {
-  display: none !important;
-}
-
-header nav .nav-brand .default-content-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-header nav .nav-brand .default-content-wrapper::before {
-  content: '';
-  display: block;
+/* Swap WKND logo for Range Rover SVG using CSS content replacement */
+header nav .nav-brand img {
+  content: url('/icons/range-rover-logo.svg');
   width: 160px;
-  height: 24px;
-  background-image: url('/icons/range-rover-logo.svg');
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
+  height: auto;
   filter: brightness(0) invert(1);
-  flex-shrink: 0;
 }
 
 .wehealthcare-theme header nav .nav-brand img {
