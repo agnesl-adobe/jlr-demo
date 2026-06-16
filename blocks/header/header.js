@@ -616,6 +616,18 @@ export default async function decorate(block) {
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
 
+  // Relabel nav links to match Range Rover (positional mapping)
+  try {
+    const rrLabels = ['VEHICLES', 'OWNERS', 'EXPLORE', 'SHOP NOW'];
+    const navLinks = block.querySelectorAll('.nav-sections ul > li > a');
+    navLinks.forEach((link, i) => {
+      if (rrLabels[i]) link.textContent = rrLabels[i];
+    });
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.debug('Nav relabel skipped', e);
+  }
+
   // Replace logo with Range Rover SVG — handles <picture>, <img>, or text.
   // Live uses a <picture> with <source> tags that override img.src, so we
   // must replace the whole <picture>; author uses a bare <img>.
