@@ -142,6 +142,10 @@
             {
               "name": "Link",
               "value": "link"
+            },
+            {
+              "name": "Dark link button",
+              "value": "button-dark-link"
             }
           ]
         },

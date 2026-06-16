@@ -1088,6 +1088,55 @@ table {
   content: none;
 }
 
+/* --------------------------
+   Dark link button — Range Rover style: solid black, white uppercase
+   text, left-pointing arrow, square corners
+--------------------------- */
+.cta-button-dark-link a.button {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 32px !important;
+  margin: 10px 5px;
+  background-color: var(--dark-color) !important;
+  color: var(--text-light) !important;
+  text-decoration: none;
+  border: 1px solid var(--dark-color) !important;
+  border-radius: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button-dark-link a.button::before {
+  content: "\2192"; /* → */
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-light);
+  transition: transform 0.3s ease;
+}
+
+.cta-button-dark-link a.button::after {
+  content: none;
+}
+
+.cta-button-dark-link a.button:hover {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: var(--text-light) !important;
+}
+
+.cta-button-dark-link a.button:hover::before {
+  transform: translateX(4px);
+  color: var(--text-light);
+}
+
 /* Accessibility: darken default accent and hover for better contrast
 :root {
   --main-accent-color: #C2410C; /* darker orange for contrast */
