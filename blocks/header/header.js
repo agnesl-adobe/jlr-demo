@@ -635,12 +635,13 @@ export default async function decorate(block) {
       const bareImg = navBrand.querySelector('img');
       if (picture) {
         // <picture> + <source> tags win over img.src — replace the whole element
+        rrImg.style.height = '10px';
         picture.replaceWith(rrImg);
       } else if (bareImg) {
         // Plain <img> (author) — swap src + size (slightly smaller in editor)
         bareImg.src = logoSrc;
         bareImg.alt = 'Range Rover';
-        bareImg.style.height = '11px';
+        bareImg.style.height = '9px';
         bareImg.style.width = 'auto';
         bareImg.style.display = 'block';
       } else {
