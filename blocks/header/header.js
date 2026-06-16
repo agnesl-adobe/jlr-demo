@@ -637,10 +637,10 @@ export default async function decorate(block) {
         // <picture> + <source> tags win over img.src — replace the whole element
         picture.replaceWith(rrImg);
       } else if (bareImg) {
-        // Plain <img> (author) — swap src + size
+        // Plain <img> (author) — swap src + size (slightly smaller in editor)
         bareImg.src = logoSrc;
         bareImg.alt = 'Range Rover';
-        bareImg.style.height = '14px';
+        bareImg.style.height = '11px';
         bareImg.style.width = 'auto';
         bareImg.style.display = 'block';
       } else {
