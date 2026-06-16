@@ -1095,8 +1095,8 @@ table {
 .cta-button-dark-link a.button {
   display: inline-flex !important;
   align-items: center;
-  gap: 14px;
-  padding: 16px 32px !important;
+  gap: 10px;
+  padding: 12px 24px !important;
   margin: 10px 5px;
   background-color: var(--dark-color) !important;
   color: var(--text-light) !important;
@@ -1104,9 +1104,9 @@ table {
   border: 1px solid var(--dark-color) !important;
   border-radius: 0;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1.2;
   text-align: center;
@@ -1116,7 +1116,7 @@ table {
 
 .cta-button-dark-link a.button::before {
   content: "\2192"; /* → */
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1;
   color: var(--text-light);
   transition: transform 0.3s ease;
