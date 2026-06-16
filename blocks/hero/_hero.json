@@ -81,6 +81,10 @@
             {
               "name": "Asset-Background Text-Right",
               "value": "image-background-text-right"
+            },
+            {
+              "name": "Hero Text Bottom Half",
+              "value": "text-bottom-half"
             }
           ]
         },

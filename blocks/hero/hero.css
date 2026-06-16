@@ -17,6 +17,27 @@
   box-sizing: border-box;
 }
 
+/* --------------------------
+   Layout: Hero Text Bottom Half (Range Rover style)
+   Background image full-bleed, text + button anchored lower-centre
+--------------------------- */
+.hero.text-bottom-half {
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8%;
+}
+
+.hero.text-bottom-half .hero-text {
+  text-align: center;
+  max-width: 1000px;
+}
+
+@media (width < 768px) {
+  .hero.text-bottom-half {
+    padding-bottom: 12%;
+  }
+}
+
 /* Ensure all direct child divs stay within the hero bounds */
 .hero > div {
   max-width: 100%;

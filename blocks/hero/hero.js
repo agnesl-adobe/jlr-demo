@@ -156,6 +156,7 @@ export default function decorate(block) {
       'overlay',
       'image-background-text-left',
       'image-background-text-right',
+      'text-bottom-half',
     ].includes(layoutStyle);
 
     if (isBackgroundLayout) {
