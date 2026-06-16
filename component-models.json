@@ -187,6 +187,14 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Center Text",
+            "value": "center-text"
+          },
+          {
+            "name": "Right Text",
+            "value": "right-text"
           }
         ]
       }

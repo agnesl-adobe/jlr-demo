@@ -793,6 +793,16 @@ main > .section[data-sec-full-width="true"] > div {
   padding: 0;
 }
 
+/* Section text alignment (set via Section > Style: Center/Right Text) */
+main .section.center-text,
+main .section.center-text > div {
+  text-align: center;
+}
+main .section.right-text,
+main .section.right-text > div {
+  text-align: right;
+}
+
 
 /* Section Background Colors */
 main .section.bg-theme {  
