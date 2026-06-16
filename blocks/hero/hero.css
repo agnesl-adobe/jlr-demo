@@ -24,7 +24,7 @@
 .hero.text-bottom-half {
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 8%;
+  padding-bottom: 4%;
 }
 
 .hero.text-bottom-half .hero-text {
@@ -34,7 +34,7 @@
 
 @media (width < 768px) {
   .hero.text-bottom-half {
-    padding-bottom: 12%;
+    padding-bottom: 8%;
   }
 }
 
