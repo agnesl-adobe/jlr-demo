@@ -17,6 +17,11 @@
   box-sizing: border-box;
 }
 
+/* Range Rover style: tall, near full-viewport background hero */
+.hero.text-bottom-half {
+  min-height: 92vh;
+}
+
 /* --------------------------
    Layout: Hero Text Bottom Half (Range Rover style)
    Background image full-bleed, text + button anchored lower-centre
