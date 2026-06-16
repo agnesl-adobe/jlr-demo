@@ -37,8 +37,23 @@
   max-width: 1000px;
 }
 
+/* Centre the background image framing for this layout (all screens) */
+.hero.text-bottom-half img {
+  object-position: center;
+}
+
+/* Tablet: trim the tall height */
+@media (width < 1024px) {
+  .hero.text-bottom-half {
+    min-height: 640px;
+    padding-bottom: 6%;
+  }
+}
+
+/* Mobile: shorter still */
 @media (width < 768px) {
   .hero.text-bottom-half {
+    min-height: 520px;
     padding-bottom: 8%;
   }
 }
