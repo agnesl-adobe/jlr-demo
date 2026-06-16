@@ -39,6 +39,20 @@
   color: var(--text-light);
   text-align: center;
   font-family: var(--black-font-family);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Range Rover style: large uppercase title with subtle letter-spacing */
+.hero h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+/* Subtitle text: lighter weight, comfortable line-height */
+.hero p {
+  font-weight: 400;
+  margin-top: 16px;
 }
 
 /* Special underline removed for RR brand */
@@ -123,10 +137,29 @@ video.hero-video-bg {
 --------------------------- */
 
 
-/* Primary CTA */
+/* Primary CTA — Range Rover style: transparent, white border, left arrow */
 .hero-wrapper .button-container.cta-button a.button {
-  background-color: var(--main-accent-color);
-  border: 2px solid var(--main-accent-color);
+  display: inline-flex !important;
+  align-items: center;
+  gap: 14px;
+  background-color: transparent !important;
+  border: 1px solid var(--text-light) !important;
+  color: var(--text-light) !important;
+  border-radius: 0;
+  padding: 16px 40px !important;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* Left-pointing arrow before the label */
+.hero-wrapper .button-container.cta-button a.button::before {
+  content: "\2192"; /* → */
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-light);
+  transition: transform 0.3s ease;
 }
 
 .hero-wrapper .button-container.cta-button a.button::after {
@@ -134,11 +167,16 @@ video.hero-video-bg {
 }
 
 .hero-wrapper .button-container.cta-button a.button:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--text-light) !important;
+  background-color: var(--text-light) !important;
+  color: var(--dark-color) !important;
   border-color: var(--text-light) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-  transform: translateY(-1px);
+  box-shadow: none !important;
+  transform: none;
+}
+
+.hero-wrapper .button-container.cta-button a.button:hover::before {
+  color: var(--dark-color);
+  transform: translateX(4px);
 }
 
 .hero-wrapper .button-container.cta-button a.button:hover::after {
@@ -593,7 +631,7 @@ picture {
 .hero.block.overlay:not(.theme-dark):not(.theme-light) .hero-text,
 .hero.image-background-text-left:not(.theme-dark):not(.theme-light) .hero-text,
 .hero.image-background-text-right:not(.theme-dark):not(.theme-light) .hero-text {
-  background: rgb(0 0 0 / 50%);
+  background: transparent;
 }
 
 /*button theme hero specific*/
