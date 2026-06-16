@@ -1112,7 +1112,7 @@ table {
   border-radius: 0;
   font-family: var(--heading-font-family);
   font-weight: 500;
-  font-size: 8px;
+  font-size: 7px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.2;
@@ -1123,7 +1123,7 @@ table {
 
 .cta-button-dark-link a.button::before {
   content: "\2192"; /* → */
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   color: var(--text-light);
   transition: transform 0.3s ease;
