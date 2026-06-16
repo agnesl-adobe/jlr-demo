@@ -461,6 +461,18 @@ body.wehealthcare-theme .lang-switcher .lang-button{
 header nav .nav-tools .search-wrapper { display: flex; align-items: center; }
 header nav .nav-tools .lang-switcher { display: inline-flex; }
 
+/* iPad landscape (1024–1199px): scale nav down so links + logo fit */
+@media (width >= 1024px) and (width < 1200px) {
+  header nav .nav-sections { left: 20px; }
+  header nav .nav-tools { right: 20px; }
+  header nav .nav-sections ul { gap: 18px; }
+  header nav .nav-sections ul > li > a {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  header nav .nav-brand img { height: 8px !important; }
+}
+
 /* Responsive Styles — tablet & mobile (hamburger layout) */
 @media (width < 1024px) {
 
@@ -470,6 +482,9 @@ header nav .nav-tools .lang-switcher { display: inline-flex; }
     align-items: center;
     justify-content: space-between;
   }
+
+  /* Smaller logo so it never collides with the hamburger or tools */
+  header nav .nav-brand img { height: 8px !important; }
 
   header nav .nav-hamburger {
     order: 0;
