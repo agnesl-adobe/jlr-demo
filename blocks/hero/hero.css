@@ -17,9 +17,9 @@
   box-sizing: border-box;
 }
 
-/* Range Rover style: tall, near full-viewport background hero */
+/* Range Rover style: slightly taller background hero */
 .hero.text-bottom-half {
-  min-height: 92vh;
+  min-height: 780px;
 }
 
 /* --------------------------
