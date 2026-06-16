@@ -616,7 +616,9 @@ export default async function decorate(block) {
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
 
-  // Replace logo with Range Rover SVG — robust: handles img OR text nav-brand
+  // Replace logo with Range Rover SVG — handles <picture>, <img>, or text.
+  // Live uses a <picture> with <source> tags that override img.src, so we
+  // must replace the whole <picture>; author uses a bare <img>.
   try {
     const navBrand = block.querySelector('.nav-brand');
     if (navBrand) {
@@ -629,16 +631,20 @@ export default async function decorate(block) {
       rrImg.style.width = 'auto';
       rrImg.style.display = 'block';
 
-      const existingImg = navBrand.querySelector('img');
-      if (existingImg) {
-        // Image-based logo — just swap the src + size
-        existingImg.src = logoSrc;
-        existingImg.alt = 'Range Rover';
-        existingImg.style.height = '14px';
-        existingImg.style.width = 'auto';
-        existingImg.style.display = 'block';
+      const picture = navBrand.querySelector('picture');
+      const bareImg = navBrand.querySelector('img');
+      if (picture) {
+        // <picture> + <source> tags win over img.src — replace the whole element
+        picture.replaceWith(rrImg);
+      } else if (bareImg) {
+        // Plain <img> (author) — swap src + size
+        bareImg.src = logoSrc;
+        bareImg.alt = 'Range Rover';
+        bareImg.style.height = '14px';
+        bareImg.style.width = 'auto';
+        bareImg.style.display = 'block';
       } else {
-        // Text-based logo — replace the inner content with the img
+        // Text-based — inject the img
         const target = navBrand.querySelector('a')
           || navBrand.querySelector('.default-content-wrapper')
           || navBrand;
