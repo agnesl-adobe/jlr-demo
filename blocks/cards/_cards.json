@@ -67,6 +67,10 @@
             {
               "name": "Dark Button",
               "value": "button-dark"
+            },
+            {
+              "name": "Dark Link Button",
+              "value": "cta-button-dark-link"
             }
           ]
         }

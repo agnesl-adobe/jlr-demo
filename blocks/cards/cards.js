@@ -58,7 +58,7 @@ export default function decorate(block) {
     const buttonContainers = li.querySelectorAll('p.button-container');
     buttonContainers.forEach(buttonContainer => {
       // Remove any existing CTA classes
-      buttonContainer.classList.remove('default', 'cta-button', 'cta-button-secondary', 'cta-button-dark', 'cta-default');
+      buttonContainer.classList.remove('default', 'cta-button', 'cta-button-secondary', 'cta-button-dark', 'cta-button-dark-link', 'cta-default');
       // Add the correct CTA class
       buttonContainer.classList.add(ctaStyle);
     });
